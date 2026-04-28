@@ -14,3 +14,5 @@ Frontend: HTML, CSS, JavaScript ,React.js
 Backend: Will be in SpringBoot
 API: TMDB (The Movie Database) API
 Styling: CSS
+
+  Project Structure
