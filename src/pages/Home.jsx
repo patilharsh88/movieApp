@@ -4,7 +4,7 @@ import { useState } from "react";
 function Home(){
 
     const[searchQuery,setSearchQuery]=useState("")
-    
+        
     const movies=[
     { id: 1, title: "Jhon wick", release_date: "2020" },
     { id: 2, title: "x-men", release_date: "2022" },
@@ -22,9 +22,9 @@ function Home(){
         e.preventDefault();        
     }
     
-return <div className="home">
+    return <div className="home">
 
-    <div className="search-form" onClick={handleSearch}>
+        <div className="search-form" onClick={handleSearch}>
 
         <form>
         <input type="text" 
@@ -32,24 +32,19 @@ return <div className="home">
         
         value={searchQuery}
         onChange={(e)=>
-            setSearchQuery(e.target.value)
-        }
-
+        setSearchQuery(e.target.value)}
         />
 
         <button type="submit"> 🔍 </button>
         </form>
 
-    </div>
-    
-
-        <div className="movies-grid">
-            {movies.map((movie)=>(
-                    movie.title.toLowerCase().startsWith(searchQuery)&&(<MovieCard movie={movie} key={movie.id}/>)
-                     
-            ))}
         </div>
+            <div className="movies-grid">
+                {movies.map((movie)=>(
+                        movie.title.toLowerCase().startsWith(searchQuery)&&(<MovieCard movie={movie} key={movie.id}/>)
+                     
+                ))}
+            </div>
         </div>
 }
-
 export default Home
