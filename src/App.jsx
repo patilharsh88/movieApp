@@ -1,6 +1,8 @@
 import './App.css'
 import MovieCard from './components/MovieCard'
+import Favourites from './pages/Favourites';
 import Home from './pages/Home'
+import { Routes,Route } from 'react-router-dom';
 
 function App() {
   
@@ -8,15 +10,19 @@ function App() {
 
   return (
 
-    <>
-     <Home/>
-    </>
+    
+     <main className='main-content' >
+
+      <Routes>
+
+          <Route path='/' element={<Home/>} />
+          <Route path='/fav' element={<Favourites/>} />
+
+      </Routes>
+
+      </main>   
+    
   )
 }
 
 export default App
-
-//  {(mNo==1)?
-//             < MovieCard movie={{title:"Volverine",nam:"x-men",release:"2000" }} /> :
-//             < MovieCard movie={{title:"Volverine 2",nam:"x-men 2",release:"2002 " }} />
-//       }
