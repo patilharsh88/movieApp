@@ -1,10 +1,13 @@
 import MovieCard from "../components/MovieCard"
 import { useState } from "react";
+import NavBar from "../components/NavBar";
+import "../CSS/Home.css"
+
 
 function Home(){
 
     const[searchQuery,setSearchQuery]=useState("")
-        
+
     const movies=[
     { id: 1, title: "Jhon wick", release_date: "2020" },
     { id: 2, title: "x-men", release_date: "2022" },
@@ -22,29 +25,28 @@ function Home(){
         e.preventDefault();        
     }
     
-    return <div className="home">
-
-        <div className="search-form" onClick={handleSearch}>
-
-        <form>
-        <input type="text" 
-        placeholder="search for movie"
-        
-        value={searchQuery}
-        onChange={(e)=>
-        setSearchQuery(e.target.value)}
+    return (
+    <div className="home">
+          <form onSubmit={handleSearch} className="search-form">
+        <input
+          type="text"
+          placeholder="Search for movies..."
+          className="search-input"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
         />
+        <button type="submit" className="search-button">
+          Search
+        </button>
+      </form>
 
-        <button type="submit"> 🔍 </button>
-        </form>
-
-        </div>
             <div className="movies-grid">
                 {movies.map((movie)=>(
                         movie.title.toLowerCase().startsWith(searchQuery)&&(<MovieCard movie={movie} key={movie.id}/>)
                      
                 ))}
             </div>
-        </div>
+          </div>
+            )
 }
 export default Home

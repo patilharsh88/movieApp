@@ -1,26 +1,23 @@
-import React from 'react'
+import "../CSS/MovieCard.css"
+// import { useMovieContext } from "../contexts/MovieContext"
 
-function MovieCard({movie}){
-
-    let count=0
-    function onHeartClick(){
-        count++;
-        alert(count);
-    }
-
-    return(
-
-        <>
-            <div className='movie-title'>{movie.title}</div>
-
-            <div> <button onClick={onHeartClick} >❤</button></div>
-
-            <div className='movie-nam' >{movie.nam}</div>
-            <div className='movie-release' >{movie.release}</div>
-        </>
-
-    )
-
+function MovieCard({movie}) {
+    
+   
+    return <div className="movie-card">
+        <div className="movie-poster">
+                 
+            <div className="movie-overlay">
+                <button className="favorite-btn"  >
+                    ♥
+                </button>
+            </div>
+        </div>
+        <div className="movie-info">
+            <h3>{movie.title}</h3>
+            <p>{movie.release_date?.split("-")[0]}</p>
+        </div>
+    </div>
 }
 
-export default MovieCard 
+export default MovieCard
